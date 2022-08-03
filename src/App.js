@@ -3,7 +3,7 @@ import PostCreate from './PostCreate';
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <PostCreate />
     </div>
   )
