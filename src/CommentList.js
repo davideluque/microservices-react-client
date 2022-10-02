@@ -1,29 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-const CommentList = ({ postId }) => {
-  const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get(`http://localhost:4001/posts/${postId}/comments`);
-        setComments(result.data);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    }
-    fetchData();
-  } , [postId]);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div>{error}</div>;
-  }
+const CommentList = ({ comments }) => {
   return (
     <div>
       <h2>Comments</h2>
